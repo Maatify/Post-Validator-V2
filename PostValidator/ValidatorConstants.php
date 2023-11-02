@@ -35,7 +35,7 @@ class ValidatorConstants
         }
         return self::$instance;
     }
-    const ValidatorRequire = 'Required';
+    const ValidatorRequire = 'Require';
     const ValidatorRequireAcceptEmpty = 'RequireAcceptEmpty';
     const ValidatorOptional = 'Optional';
 

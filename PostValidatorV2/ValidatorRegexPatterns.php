@@ -55,6 +55,12 @@ abstract class ValidatorRegexPatterns
             'parameter_type' => '/^[a-z]{3,6}$/',
             'token'=>'/^[a-zA-Z0-9._\-]+$/',
             'api_key'=>'/^[A-Za-z0-9]+$/',
+            'slug' => '/^[a-z0-9\-]+$/',
+            'letters' => '/^[a-zA-Z]*$/i',
+            'small_letters' => '/^[a-z]*$/i',
+            'json' => '((\[[^\}]+)?\{s*[^\}\{]{3,}?:.*\}([^\{]+\])?)',
+            'search' => '/^[a-zA-Z_\-\s\d]*$/i',
+            'col_name' => '/^[a-z_\d]*$/i',
             default => '',
         };
     }

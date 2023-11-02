@@ -51,6 +51,10 @@ abstract class ValidatorRegexPatterns
             'float' => '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/',
             'bool' => '/^[0-1]{1}$/',
             'device_id' => '/^[a-zA-Z_\-\d]*$/i',
+            'key' => '/^[a-zA-Z0-9_]*$/i',
+            'parameter_type' => '/^[a-z]{3,6}$/',
+            'token'=>'/^[a-zA-Z0-9._\-]+$/',
+            'api_key'=>'/^[A-Za-z0-9]+$/',
             default => '',
         };
     }

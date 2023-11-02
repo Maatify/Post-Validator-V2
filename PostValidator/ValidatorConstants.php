@@ -65,5 +65,8 @@ class ValidatorConstants
     const TypeBool = 'bool';
     const TypeDeviceId = 'device_id';
     const TypeString = 'string';
+    const TypeComment = 'comment';
+    const TypeToken = 'token';
+    const TypeApiKey = 'api_key';
 
 }

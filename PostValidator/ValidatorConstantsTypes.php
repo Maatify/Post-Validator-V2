@@ -24,9 +24,9 @@
 
 namespace Maatify\PostValidator;
 
-class ValidatorConstants
+class ValidatorConstantsTypes
 {
-    private static ValidatorConstants $instance;
+    private static ValidatorConstantsTypes $instance;
 
     public static function obj(): self
     {
@@ -35,38 +35,35 @@ class ValidatorConstants
         }
         return self::$instance;
     }
-    const ValidatorRequire = 'Require';
-    const ValidatorRequireAcceptEmpty = 'RequireAcceptEmpty';
-    const ValidatorOptional = 'Optional';
 
-    const TypeEmail = 'email';
-    const TypeIP = 'ip';
-    const TypeMobileEgypt = 'mobile_egypt';
-    const TypeName = 'name';
-    const TypeNameEn = 'name_en';
-    const TypeNameAr = 'name_ar';
-    const TypeUsername = 'username';
-    const TypeMainHash = 'main_hash';
-    const TypePhone = 'phone';
-    const TypePhoneFull = 'phone_full';
-    const TypeYear = 'year';
-    const TypeMonth = 'month';
-    const TypeDay = 'day';
-    const TypeYearMonth = 'year_month';
-    const TypeDate = 'date';
-    const TypeDateTime = 'datetime';
-    const TypePassword = 'password';
-    const TypeAccountNo = 'account_no';
-    const TypePin = 'pin';
-    const TypeCode = 'code';
-    const TypeAppType = 'app_type';
-    const TypeInt = 'int';
-    const TypeFloat = 'float';
-    const TypeBool = 'bool';
-    const TypeDeviceId = 'device_id';
-    const TypeString = 'string';
-    const TypeComment = 'comment';
-    const TypeToken = 'token';
-    const TypeApiKey = 'api_key';
+    const Email = 'email';
+    const IP = 'ip';
+    const MobileEgypt = 'mobile_egypt';
+    const Name = 'name';
+    const NameEn = 'name_en';
+    const NameAr = 'name_ar';
+    const Username = 'username';
+    const MainHash = 'main_hash';
+    const Phone = 'phone';
+    const PhoneFull = 'phone_full';
+    const Year = 'year';
+    const Month = 'month';
+    const Day = 'day';
+    const YearMonth = 'year_month';
+    const Date = 'date';
+    const DateTime = 'datetime';
+    const Password = 'password';
+    const AccountNo = 'account_no';
+    const Pin = 'pin';
+    const Code = 'code';
+    const AppType = 'app_type';
+    const Int = 'int';
+    const Float = 'float';
+    const Bool = 'bool';
+    const DeviceId = 'device_id';
+    const String = 'string';
+    const Comment = 'comment';
+    const Token = 'token';
+    const ApiKey = 'api_key';
 
 }

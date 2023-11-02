@@ -7,7 +7,7 @@
  * https://www.Maatify.dev
  */
 
-namespace Maatify\PostValidator;
+namespace Maatify\PostValidatorV2;
 
 class ValidatorConstantsValidators
 {

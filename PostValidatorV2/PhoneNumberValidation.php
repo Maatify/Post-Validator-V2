@@ -22,7 +22,7 @@
  *
  */
 
-namespace Maatify\PostValidator;
+namespace Maatify\PostValidatorV2;
 
 use libphonenumber\geocoding\PhoneNumberOfflineGeocoder;
 use libphonenumber\NumberParseException;

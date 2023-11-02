@@ -22,48 +22,19 @@
  *
  */
 
-namespace Maatify\PostValidator;
+namespace Maatify\PostValidatorV2;
+use EmailValidation\EmailValidatorFactory;
 
-class ValidatorConstantsTypes
+class HostEmailValidation
 {
-    private static ValidatorConstantsTypes $instance;
-
-    public static function obj(): self
+    public static function HostEmailValidation(string $email): bool
     {
-        if (! isset(self::$instance)) {
-            self::$instance = new self();
+        $validator = EmailValidatorFactory::create($email);
+        $arrayResult = $validator->getValidationResults()->asArray();
+        if($arrayResult['valid_format'] && $arrayResult['valid_mx_records'] && $arrayResult['valid_host']){
+            return true;
         }
-        return self::$instance;
+        return false;
     }
-
-    const Email = 'email';
-    const IP = 'ip';
-    const MobileEgypt = 'mobile_egypt';
-    const Name = 'name';
-    const NameEn = 'name_en';
-    const NameAr = 'name_ar';
-    const Username = 'username';
-    const MainHash = 'main_hash';
-    const Phone = 'phone';
-    const PhoneFull = 'phone_full';
-    const Year = 'year';
-    const Month = 'month';
-    const Day = 'day';
-    const YearMonth = 'year_month';
-    const Date = 'date';
-    const DateTime = 'datetime';
-    const Password = 'password';
-    const AccountNo = 'account_no';
-    const Pin = 'pin';
-    const Code = 'code';
-    const AppType = 'app_type';
-    const Int = 'int';
-    const Float = 'float';
-    const Bool = 'bool';
-    const DeviceId = 'device_id';
-    const String = 'string';
-    const Comment = 'comment';
-    const Token = 'token';
-    const ApiKey = 'api_key';
 
 }

@@ -134,12 +134,15 @@ class PostValidatorV2 extends PostValidatorMethods
 
             default:
                 $regexPattern = $this->regex_patterns::Patterns($type) ?: $this->Patterns($type);
-
-                if (!empty($regexPattern) && preg_match($regexPattern, $postData)) {
+                if(empty($regexPattern)){
                     return $this->clearInput($postData);
-                } else {
-                    Json::Invalid($name, $more_info, self::$line);
-                    return '';
+                }else{
+                    if (preg_match($regexPattern, $postData)) {
+                        return $this->clearInput($postData);
+                    } else {
+                        Json::Invalid($name, $more_info, self::$line);
+                        return '';
+                    }
                 }
         }
     }

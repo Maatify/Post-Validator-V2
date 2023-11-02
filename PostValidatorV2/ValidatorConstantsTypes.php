@@ -26,15 +26,6 @@ namespace Maatify\PostValidatorV2;
 
 class ValidatorConstantsTypes
 {
-    private static ValidatorConstantsTypes $instance;
-
-    public static function obj(): self
-    {
-        if (! isset(self::$instance)) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
 
     const Email = 'email';
     const IP = 'ip';
@@ -52,6 +43,7 @@ class ValidatorConstantsTypes
     const YearMonth = 'year_month';
     const Date = 'date';
     const DateTime = 'datetime';
+    const Time = 'time';
     const Password = 'password';
     const AccountNo = 'account_no';
     const Pin = 'pin';

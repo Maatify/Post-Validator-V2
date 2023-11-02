@@ -65,9 +65,9 @@ class ValidatorConstantsTypes
     const ApiKey = 'api_key';
     const String = 'string';
     const Comment = 'comment';
-    const DESCRIPTION = 'description';
+    const Description = 'description';
     const Slug = 'slug';
-    const Json = 'json';
+    const JSON = 'json';
     const Letters = 'letters';
     const Small_Letters = 'small_letters';
     const Search = 'search';

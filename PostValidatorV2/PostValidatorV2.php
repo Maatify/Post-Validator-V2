@@ -110,7 +110,7 @@ class PostValidatorV2 extends PostValidatorMethods
     private function HandlePostType(string $name, string $type, string $more_info): string
     {
         $regexPattern = $this->regex_patterns::Patterns($type) ?: $this->Patterns($type);
-        $postData = $_POST[$name] ?? '';
+        $postData = trim($_POST[$name]) ?? '';
 
         switch ($type) {
             case 'email':

@@ -141,12 +141,12 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
         return '';
     }
 
-    protected function validateStatus(string $value, string $name, string $more_info = '')
+    protected function validateStatusOrStatusId(string $value, string $type, string $name, string $more_info = '')
     {
         if(strtolower($value) != 'all') {
-            $regexPattern = $this->regex_patterns::Patterns('status');
+            $regexPattern = $this->regex_patterns::Patterns($type);
             if (empty($regexPattern)) {
-                $regexPattern = $this->Patterns('status');
+                $regexPattern = $this->Patterns($type);
             }
             if (! preg_match($regexPattern, $_POST[$name])) {
                 Json::Invalid($name, $more_info, self::$line);

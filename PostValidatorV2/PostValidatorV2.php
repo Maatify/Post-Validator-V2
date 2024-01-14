@@ -133,6 +133,9 @@ class PostValidatorV2 extends PostValidatorMethods
             case 'int':
                 return $this->validateIntegerFloat($postData, $name, $more_info);
 
+            case 'status':
+                return $this->validateStatusOrStatusId($postData, $type, $name, $more_info);
+
             default:
                 $regexPattern = $this->regex_patterns::Patterns($type) ?: $this->Patterns($type);
                 if(empty($regexPattern)){

@@ -70,5 +70,6 @@ class ValidatorConstantsTypes
     const StripeId = 'stripe_id';
     const Status = 'status';
     const StatusId = 'status_id';
+    const Gender = 'gender';
 
 }

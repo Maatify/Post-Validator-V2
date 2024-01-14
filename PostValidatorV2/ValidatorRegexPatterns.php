@@ -58,10 +58,14 @@ abstract class ValidatorRegexPatterns
             'slug' => '/^[a-z0-9\-]+$/',
             'letters' => '/^[a-zA-Z]*$/i',
             'small_letters' => '/^[a-z]*$/i',
+            'capital_letters' => '/^[A-Z]*$/i',
+            'digital_small_letters' => '/^[a-z\d]*$/i',
+            'digital_capital_letters' => '/^[A-Z\d]*$/i',
             'json' => '((\[[^\}]+)?\{s*[^\}\{]{3,}?:.*\}([^\{]+\])?)',
             'search' => '/^[a-zA-Z_\-\s\d]*$/i',
             'col_name' => '/^[a-z_\d]*$/i',
             'stripe_id' => '/^[a-zA-Z\-_\d]*$/i',
+
             default => '',
         };
     }

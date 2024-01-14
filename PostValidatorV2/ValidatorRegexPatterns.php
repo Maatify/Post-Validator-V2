@@ -61,6 +61,7 @@ abstract class ValidatorRegexPatterns
             'json' => '((\[[^\}]+)?\{s*[^\}\{]{3,}?:.*\}([^\{]+\])?)',
             'search' => '/^[a-zA-Z_\-\s\d]*$/i',
             'col_name' => '/^[a-z_\d]*$/i',
+            'stripe_id' => '/^[a-zA-Z\-_\d]*$/i',
             default => '',
         };
     }

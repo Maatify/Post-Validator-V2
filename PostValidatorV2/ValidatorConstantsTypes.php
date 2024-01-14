@@ -64,5 +64,6 @@ class ValidatorConstantsTypes
     const Small_Letters = 'small_letters';
     const Search = 'search';
     const Col_Name = 'col_name';
+    const StripeId = 'stripe_id';
 
 }

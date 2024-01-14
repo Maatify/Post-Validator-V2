@@ -66,6 +66,7 @@ abstract class ValidatorRegexPatterns
             'col_name' => '/^[a-z_\d]*$/i',
             'stripe_id' => '/^[a-zA-Z\-_\d]*$/i',
             'gender' => '/^[0-2]{1}$/',
+            'marital' => '/^[1-4]{1}$/',
             default => '',
         };
     }

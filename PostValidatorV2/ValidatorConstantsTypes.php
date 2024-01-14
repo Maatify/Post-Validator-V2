@@ -72,5 +72,6 @@ class ValidatorConstantsTypes
     const StatusId = 'status_id';
     const Gender = 'gender';
     const Marital = 'marital';
+    const PathUrl = 'path_url';
 
 }

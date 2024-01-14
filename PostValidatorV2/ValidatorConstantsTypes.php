@@ -62,9 +62,9 @@ class ValidatorConstantsTypes
     const JSON = 'json';
     const Letters = 'letters';
     const Small_Letters = 'small_letters';
-    const Capital_Letters = 'capital_letters';
+    const Upper_Letters = 'upper_letters';
     const Digital_Small_Letters = 'digital_small_letters';
-    const Digital_Capital_Letters = 'digital_capital_letters';
+    const Digital_Upper_Letters = 'digital_upper_letters';
     const Search = 'search';
     const Col_Name = 'col_name';
     const StripeId = 'stripe_id';

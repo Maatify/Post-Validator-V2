@@ -56,8 +56,13 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
     protected function validatePhoneNumber(string $phone, string $name, string $more_info = ''): string
     {
         $regexPattern = $this->regex_patterns::Patterns('phone');
+        if(empty($regexPattern)){
+            $regexPattern = $this->Patterns('phone');
+        }
         $regexPatternFull = $this->regex_patterns::Patterns('phone_full');
-
+        if(empty($regexPatternFull)){
+            $regexPatternFull = $this->Patterns('phone_full');
+        }
         if (preg_match($regexPattern, $phone) || preg_match($regexPatternFull, $phone)) {
             $ph = PhoneNumberValidation::getInstance()->SetRegion()->SetNumber($phone);
             if ($ph->NumberIsValid()) {
@@ -83,6 +88,9 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
     protected function validateMobileEgyptNumber(string $mobile, string $name, string $more_info = ''): string
     {
         $regexPattern = $this->regex_patterns::Patterns('mobile_egypt');
+        if(empty($regexPattern)){
+            $regexPattern = $this->Patterns('mobile_egypt');
+        }
 
         if (preg_match($regexPattern, $mobile) && in_array(substr($mobile, 1, 2), [10, 11, 12, 15]) && strlen((int)$mobile) != 10) {
             return $mobile;
@@ -105,8 +113,11 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
                     if ($value < 10) {
                         $value = '0' . $value;
                     }
-
-                    if (! preg_match($this->regex_patterns::Patterns($type), $_POST[$name])) {
+                    $regexPattern = $this->regex_patterns::Patterns($type);
+                    if(empty($regexPattern)){
+                        $regexPattern = $this->Patterns($type);
+                    }
+                    if (! preg_match($regexPattern, $_POST[$name])) {
                         Json::Invalid($name, $more_info, self::$line);
                         exit();
                     }
@@ -128,6 +139,22 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
 
         Json::Invalid($name, $more_info, self::$line);
         return '';
+    }
+
+    protected function validateStatus(string $value, string $name, string $more_info = '')
+    {
+        if(strtolower($value) != 'all') {
+            $regexPattern = $this->regex_patterns::Patterns('status');
+            if (empty($regexPattern)) {
+                $regexPattern = $this->Patterns('status');
+            }
+            if (! preg_match($regexPattern, $_POST[$name])) {
+                Json::Invalid($name, $more_info, self::$line);
+                exit();
+            }
+        }
+
+        return $value;
     }
 
     protected function clearInput(string $data): string

@@ -65,5 +65,7 @@ class ValidatorConstantsTypes
     const Search = 'search';
     const Col_Name = 'col_name';
     const StripeId = 'stripe_id';
+    const Status = 'status';
+    const StatusId = 'status_id';
 
 }

@@ -48,7 +48,7 @@ class PostValidatorV2 extends PostValidatorMethods
         $this->regex_patterns = RegexPatterns::obj();
     }
 
-    public function Require(string $name, string $type = 'string', string $more_info = ''): string
+    public function Require(string $name, string $type = 'string', string $more_info = ''): float|int|string
     {
         if (empty($_POST)) {
             Json::MissingMethod();
@@ -63,7 +63,7 @@ class PostValidatorV2 extends PostValidatorMethods
         return $this->HandleRequired($name, $type, $more_info);
     }
 
-    public function RequireAcceptEmpty(string $name, string $type = 'string', string $more_info = ''): string
+    public function RequireAcceptEmpty(string $name, string $type = 'string', string $more_info = ''): float|int|string
     {
         if (empty($_POST)) {
             Json::MissingMethod();
@@ -78,7 +78,7 @@ class PostValidatorV2 extends PostValidatorMethods
         return $this->HandleRequired($name, $type, $more_info);
     }
 
-    private function HandleRequired(string $name, string $type = 'string', string $more_info = ''): string
+    private function HandleRequired(string $name, string $type = 'string', string $more_info = ''): float|int|string
     {
         if (is_array($_POST[$name])) {
             Json::Invalid($name, $more_info, self::$line);
@@ -89,7 +89,7 @@ class PostValidatorV2 extends PostValidatorMethods
         return $this->HandlePostType($name, $type, $more_info);
     }
 
-    public function Optional(string $name, string $type = 'string', string $more_info = ''): string
+    public function Optional(string $name, string $type = 'string', string $more_info = ''): float|int|string
     {
         if (! empty($_POST) && ! empty($_POST[$name]) && ! is_array($_POST[$name])) {
             return $this->HandlePostType($name, $type, $more_info);
@@ -107,7 +107,7 @@ class PostValidatorV2 extends PostValidatorMethods
         return '';
     }
 
-    private function HandlePostType(string $name, string $type, string $more_info): string
+    private function HandlePostType(string $name, string $type, string $more_info): float|int|string
     {
         $regexPattern = $this->regex_patterns::Patterns($type) ?: $this->Patterns($type);
         $postData = trim($_POST[$name]) ?? '';
@@ -131,10 +131,10 @@ class PostValidatorV2 extends PostValidatorMethods
 
             case 'float':
             case 'int':
-                return $this->validateIntegerFloat($postData, $name, $more_info);
+                return (float)$this->validateIntegerFloat($postData, $name, $more_info);
 
             case 'status':
-                return $this->validateStatusOrStatusId($postData, $type, $name, $more_info);
+                return (int)$this->validateStatusOrStatusId($postData, $type, $name, $more_info);
 
             default:
                 $regexPattern = $this->regex_patterns::Patterns($type) ?: $this->Patterns($type);

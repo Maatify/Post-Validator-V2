@@ -131,7 +131,7 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
         return '';
     }
 
-    protected function validateIntegerFloat(string $value, string $name, string $more_info = ''): string
+    protected function validateIntegerFloat(string $value, string $name, string $more_info = ''): float|int|string
     {
         if (is_numeric($value)) {
             return (float)$value;
@@ -141,9 +141,12 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
         return '';
     }
 
-    protected function validateStatusOrStatusId(string $value, string $type, string $name, string $more_info = '')
+    protected function validateStatusOrStatusId(string $value, string $type, string $name, string $more_info = ''): float|int|string
     {
-        if(strtolower($value) != 'all') {
+        if(strtolower($value) != 'all'){
+            return 0;
+        }
+        else{
             $regexPattern = $this->regex_patterns::Patterns($type);
             if (empty($regexPattern)) {
                 $regexPattern = $this->Patterns($type);

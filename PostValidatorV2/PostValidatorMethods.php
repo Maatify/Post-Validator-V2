@@ -144,7 +144,7 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
     protected function validateStatusOrStatusId(string $value, string $type, string $name, string $more_info = ''): float|int|string
     {
         if(strtolower($value) == 'all'){
-            return 0;
+            return 'all';
         }
         else{
             $regexPattern = $this->regex_patterns::Patterns($type);

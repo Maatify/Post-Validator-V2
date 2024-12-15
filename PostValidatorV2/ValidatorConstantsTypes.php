@@ -74,5 +74,6 @@ class ValidatorConstantsTypes
     const Marital = 'marital';
     const PathUrl = 'path_url';
     const FullUrl = 'full_url';
+    const Style = 'style';
 
 }

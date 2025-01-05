@@ -66,7 +66,7 @@ abstract class ValidatorRegexPatterns
             'col_name' => '/^[a-z_\d]*$/i',
             'stripe_id' => '/^[a-zA-Z\-_\d]*$/i',
             'gender' => '/^[0-2]{1}$/',
-            'marital' => '/^[1-4]{1}$/',
+            'marital' => '/^[1-6]{1}$/',
             'path_url' => '/^[a-z_\d\/]*$/i',
             'full_url' => '/^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(:\d{1,5})?(\/[^\s]*)?(\?[a-zA-Z0-9=&%_.-]*)?(#[a-zA-Z0-9-_]*)?$/i',
             'style' => '/^[a-zA-Z_\-\s\d\.]*$/i',

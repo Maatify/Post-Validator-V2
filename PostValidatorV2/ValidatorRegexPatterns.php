@@ -46,7 +46,7 @@ abstract class ValidatorRegexPatterns
             'account_no' => '/^[0-9]{9}$/',
             'egypt_national_id' => '/^[0-9]{14}$/',
             'pin', 'code' => '/^[0-9]{6}$/',
-            'app_type' => '/^[1-3]{1}$/',
+            'app_type' => '/^[1-8]{1}$/',
             'int', 'status_id' => '/^[0-9]+$/i',
             'float' => '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/',
             'bool', 'status' => '/^[0-1]{1}$/',

@@ -55,28 +55,30 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
 
     protected function validatePhoneNumber(string $phone, string $name, string $more_info = ''): string
     {
-        $regexPattern = $this->regex_patterns::Patterns('phone');
-        if(empty($regexPattern)){
-            $regexPattern = $this->Patterns('phone');
-        }
-        $regexPatternFull = $this->regex_patterns::Patterns('phone_full');
-        if(empty($regexPatternFull)){
-            $regexPatternFull = $this->Patterns('phone_full');
-        }
-        if (preg_match($regexPattern, $phone) || preg_match($regexPatternFull, $phone)) {
-            $ph = PhoneNumberValidation::getInstance()->SetRegion()->SetNumber($phone);
-            if ($ph->NumberIsValid()) {
-                try {
-                    $formattedPhone = $ph->NumberFormatE164();
+        if(strlen($phone) > 5) {
+            $regexPattern = $this->regex_patterns::Patterns('phone');
+            if(empty($regexPattern)){
+                $regexPattern = $this->Patterns('phone');
+            }
+            $regexPatternFull = $this->regex_patterns::Patterns('phone_full');
+            if(empty($regexPatternFull)){
+                $regexPatternFull = $this->Patterns('phone_full');
+            }
+            if (preg_match($regexPattern, $phone) || preg_match($regexPatternFull, $phone)) {
+                $ph = PhoneNumberValidation::getInstance()->SetRegion()->SetNumber($phone);
+                if ($ph->NumberIsValid()) {
+                    try {
+                        $formattedPhone = $ph->NumberFormatE164();
 
-                    if (str_contains($formattedPhone, '+20') && !in_array(substr($formattedPhone, 3, 2), [10, 11, 12, 15])) {
-                        Json::Invalid('phone', $more_info, self::$line);
+                        if (str_contains($formattedPhone, '+20') && !in_array(substr($formattedPhone, 3, 2), [10, 11, 12, 15])) {
+                            Json::Invalid('phone', $more_info, self::$line);
+                        }
+
+                        return $formattedPhone;
+                    } catch (NumberParseException $e) {
+                        Logger::RecordLog($e, 'post_validator_phone');
+                        Json::TryAgain();
                     }
-
-                    return $formattedPhone;
-                } catch (NumberParseException $e) {
-                    Logger::RecordLog($e, 'post_validator_phone');
-                    Json::TryAgain();
                 }
             }
         }

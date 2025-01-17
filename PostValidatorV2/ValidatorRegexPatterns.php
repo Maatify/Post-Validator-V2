@@ -45,7 +45,7 @@ abstract class ValidatorRegexPatterns
             'password' => '/^(?=.*\d)(?=.*[a-zA-Z])[0-9A-Za-z!@#$%+_\-&]{7,70}$/',
             'account_no' => '/^[0-9]{9}$/',
             'egypt_national_id' => '/^[0-9]{14}$/',
-            'pin', 'code' => '/^[0-9]{6}$/',
+            'pin', 'code', 'pin_code', 'auth_code' => '/^[0-9]{6}$/',
             'app_type' => '/^[1-8]{1}$/',
             'int', 'status_id' => '/^[0-9]+$/i',
             'float' => '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/',

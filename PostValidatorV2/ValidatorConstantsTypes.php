@@ -48,6 +48,8 @@ class ValidatorConstantsTypes
     const AccountNo = 'account_no';
     const Pin = 'pin';
     const Code = 'code';
+    const PinCode = 'pin_code';
+    const AuthCode = 'auth_code';
     const AppType = 'app_type';
     const Int = 'int';
     const Float = 'float';

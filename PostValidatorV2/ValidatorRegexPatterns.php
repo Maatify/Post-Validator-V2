@@ -71,6 +71,7 @@ abstract class ValidatorRegexPatterns
 //            'full_url' => '/^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(:\d{1,5})?(\/[^\s]*)?(\?[a-zA-Z0-9=&%_.-]*)?(#[a-zA-Z0-9-_]*)?$/i',
             'full_url' => '/^((https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(:\d{1,5})?(\/[^\s]*)?(\?[a-zA-Z0-9=&%_.-]*)?(#[a-zA-Z0-9-_]*)?)?$/i',
             'style' => '/^[a-zA-Z_\-\s\d\.]*$/i',
+            'language_code' => '/^[a-z]{2}$/i',
             default => '',
         };
     }

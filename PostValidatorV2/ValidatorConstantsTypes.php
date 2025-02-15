@@ -77,5 +77,6 @@ class ValidatorConstantsTypes
     const PathUrl = 'path_url';
     const FullUrl = 'full_url';
     const Style = 'style';
+    const LanguageCode = 'language_code';
 
 }

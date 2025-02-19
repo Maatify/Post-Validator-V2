@@ -91,7 +91,7 @@ class PostValidatorV2 extends PostValidatorMethods
 
     public function Optional(string $name, string $type = 'string', string $more_info = ''): float|int|string
     {
-        if (! empty($_POST) && isset($_POST[$name]) && ! is_array($_POST[$name])) {
+        if (! empty($_POST) && !empty($_POST[$name]) && ! is_array($_POST[$name])) {
             return $this->HandlePostType($name, $type, $more_info);
         } else {
             if (in_array($type, ['page', 'limit'])) {

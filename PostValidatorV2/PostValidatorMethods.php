@@ -39,7 +39,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
             return $email;
         } else {
             Json::Invalid($name, $more_info, self::$line);
-            return '';
         }
     }
 
@@ -49,7 +48,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
             return $ip;
         } else {
             Json::Invalid($name, $more_info, self::$line);
-            return '';
         }
     }
 
@@ -84,7 +82,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
         }
 
         Json::Invalid($name, $more_info, self::$line);
-        return '';
     }
 
     protected function validateMobileEgyptNumber(string $mobile, string $name, string $more_info = ''): string
@@ -98,7 +95,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
             return $mobile;
         } else {
             Json::Invalid($name, $more_info, self::$line);
-            return '';
         }
     }
 
@@ -110,7 +106,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
             if ($value > 0) {
                 if ($type === 'month' && $value > 12) {
                     Json::Invalid($name, $more_info, self::$line);
-                    return '';
                 }else{
                     if ($value < 10) {
                         $value = '0' . $value;
@@ -121,7 +116,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
                     }
                     if (! preg_match($regexPattern, $_POST[$name])) {
                         Json::Invalid($name, $more_info, self::$line);
-                        exit();
                     }
                 }
 
@@ -130,7 +124,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
         }
 
         Json::Invalid($name, $more_info, self::$line);
-        return '';
     }
 
     protected function validateIntegerFloat(string $value, string $name, string $more_info = ''): float|int|string
@@ -140,7 +133,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
         }
 
         Json::Invalid($name, $more_info, self::$line);
-        return '';
     }
 
     protected function validateStatusOrStatusId(string $value, string $type, string $name, string $more_info = ''): float|int|string
@@ -155,7 +147,6 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
             }
             if (! preg_match($regexPattern, $_POST[$name])) {
                 Json::Invalid($name, $more_info, self::$line);
-                exit();
             }
         }
 

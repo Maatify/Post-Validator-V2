@@ -82,8 +82,6 @@ class PostValidatorV2 extends PostValidatorMethods
     {
         if (is_array($_POST[$name])) {
             Json::Invalid($name, $more_info, self::$line);
-
-            return '';
         }
 
         return $this->HandlePostType($name, $type, $more_info);
@@ -145,7 +143,6 @@ class PostValidatorV2 extends PostValidatorMethods
                         return $this->clearInput($postData);
                     } else {
                         Json::Invalid($name, $more_info, self::$line);
-                        return '';
                     }
                 }
         }

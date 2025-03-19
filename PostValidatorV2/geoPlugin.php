@@ -192,8 +192,6 @@ class geoPlugin
                 'geoPlugin class Error: Cannot retrieve data. Either compile PHP with cURL support or enable allow_url_fopen in php.ini ',
                 E_USER_ERROR
             );
-
-            return;
         }
 
         return $response;

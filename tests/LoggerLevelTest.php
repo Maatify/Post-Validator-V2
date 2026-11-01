@@ -6,16 +6,22 @@ use Maatify\Logger\Logger;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Every Logger::RecordLog() call must use named arguments, so a log-file name
- * can never land in the PSR-3 level slot (maatify/logger >= 5.1 rejects it),
- * and the call shape used by the library must work with every supported
- * maatify/logger release (verified by scripts/verify-logger-matrix.sh).
+ * Static guard for Logger::RecordLog() calls in the library sources, plus a
+ * runtime check of the call shape against the installed maatify/logger.
+ *
+ * What it guarantees: no call passes a positional second argument (which lands
+ * in the PSR-3 level slot on maatify/logger >= 5.1), and a level given as a
+ * string literal is a PSR-3 level. What it does not guarantee: a level coming
+ * from a variable or other expression is not evaluated, and the scan is a
+ * regular-expression check, not a full PHP parser. The call shape used by the
+ * library is exercised against every supported logger release by
+ * scripts/verify-logger-matrix.sh.
  */
 final class LoggerLevelTest extends TestCase
 {
     private const PSR3_LEVELS = ['emergency', 'alert', 'critical', 'error', 'warning', 'notice', 'info', 'debug'];
 
-    public function testEveryRecordLogCallUsesNamedArgumentsAndAPsr3Level(): void
+    public function testNoRecordLogCallPassesAPositionalSecondArgumentOrALiteralNonPsr3Level(): void
     {
         $calls = 0;
         foreach (glob(__DIR__ . '/../PostValidatorV2/*.php') ?: [] as $file) {

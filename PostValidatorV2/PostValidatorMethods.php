@@ -74,7 +74,7 @@ abstract class PostValidatorMethods extends ValidatorRegexPatterns
 
                         return $formattedPhone;
                     } catch (NumberParseException $e) {
-                        Logger::RecordLog($e, 'post_validator_phone');
+                        Logger::RecordLog(message: $e, logFile: 'post_validator_phone');
                         Json::TryAgain();
                     }
                 }
